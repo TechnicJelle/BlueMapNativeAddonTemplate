@@ -1,7 +1,6 @@
 package com.technicjelle.BlueMapNativeAddonTemplate;
 
-import com.technicjelle.BMUtils.BMCopy;
-import com.technicjelle.BMUtils.BMNative;
+import com.technicjelle.BMUtils.BMNative.BMNConfigDirectory;
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.configurate.hocon.HoconConfigurationLoader;
@@ -19,8 +18,8 @@ public class Config {
 	private @Nullable String world;
 
 	public static Config load(BlueMapAPI api) throws IOException {
-		BMCopy.Native.jarResourceToAllocatedConfigDirectory(api, Config.class.getClassLoader(), fileName, fileName, false);
-		Path configDirectory = BMNative.getAllocatedConfigDirectory(api, Config.class.getClassLoader());
+		BMNConfigDirectory.BMNCopy.fromJarResource(api, Config.class.getClassLoader(), fileName, fileName, false);
+		Path configDirectory = BMNConfigDirectory.getAllocatedDirectory(api, Config.class.getClassLoader());
 		Path configFile = configDirectory.resolve(fileName);
 
 		HoconConfigurationLoader loader = HoconConfigurationLoader.builder()

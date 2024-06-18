@@ -1,17 +1,16 @@
 package com.technicjelle.BlueMapNativeAddonTemplate;
 
-import com.technicjelle.BMUtils.BMNative;
+import com.technicjelle.BMUtils.BMNative.BMNLogger;
+import com.technicjelle.BMUtils.BMNative.BMNMetadata;
 import com.technicjelle.UpdateChecker;
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.util.function.Consumer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class BlueMapNativeAddonTemplate implements Runnable {
-	private Logger logger;
+	private BMNLogger logger;
 	private UpdateChecker updateChecker;
 	private @Nullable Config config;
 
@@ -20,13 +19,13 @@ public class BlueMapNativeAddonTemplate implements Runnable {
 		String addonID;
 		String addonVersion;
 		try {
-			addonID = BMNative.getAddonID(this.getClass().getClassLoader());
-			addonVersion = BMNative.getAddonMetadataKey(this.getClass().getClassLoader(), "version");
+			addonID = BMNMetadata.getAddonID(this.getClass().getClassLoader());
+			addonVersion = BMNMetadata.getKey(this.getClass().getClassLoader(), "version");
+			logger = new BMNLogger(this.getClass().getClassLoader());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		logger = Logger.getLogger(addonID);
-		logger.log(Level.INFO, "Starting " + addonID + " " + addonVersion);
+		logger.logInfo("Starting " + addonID + " " + addonVersion);
 		updateChecker = new UpdateChecker("TechnicJelle", addonID, addonVersion);
 		updateChecker.checkAsync();
 		BlueMapAPI.onEnable(onEnableListener);
@@ -34,7 +33,7 @@ public class BlueMapNativeAddonTemplate implements Runnable {
 	}
 
 	final private Consumer<BlueMapAPI> onEnableListener = api -> {
-		updateChecker.logUpdateMessage(logger);
+		updateChecker.getUpdateMessage().ifPresent(logger::logWarning);
 
 		try {
 			config = Config.load(api);
@@ -43,11 +42,11 @@ public class BlueMapNativeAddonTemplate implements Runnable {
 			throw new RuntimeException(e);
 		}
 
-		logger.log(Level.INFO, "Hello, " + config.getWorld() + "!");
+		logger.logInfo("Hello, " + config.getWorld() + "!");
 	};
 
 	final private Consumer<BlueMapAPI> onDisableListener = api -> {
 		if (config == null) return;
-		logger.log(Level.INFO, "Goodbye, " + config.getWorld() + "!");
+		logger.logInfo("Goodbye, " + config.getWorld() + "!");
 	};
 }
