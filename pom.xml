@@ -23,15 +23,15 @@
 					<relocations>
 						<relocation>
 							<pattern>com.technicjelle.BMUtils</pattern>
-							<shadedPattern>${project.groupId}.${project.artifactId}.shade.BMUtils</shadedPattern>
+							<shadedPattern>${project.groupId}.${project.artifactId}.shadow.BMUtils</shadedPattern>
 						</relocation>
 						<relocation>
 							<pattern>com.technicjelle.UpdateChecker</pattern>
-							<shadedPattern>${project.groupId}.${project.artifactId}.shade.UpdateChecker</shadedPattern>
+							<shadedPattern>${project.groupId}.${project.artifactId}.shadow.UpdateChecker</shadedPattern>
 						</relocation>
 						<relocation>
 							<pattern>org.spongepowered.configurate</pattern>
-							<shadedPattern>${project.groupId}.${project.artifactId}.shade.configurate</shadedPattern>
+							<shadedPattern>${project.groupId}.${project.artifactId}.shadow.configurate</shadedPattern>
 						</relocation>
 					</relocations>
 				</configuration>
