@@ -17,7 +17,6 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.6.0</version>
 				<configuration>
@@ -105,9 +104,9 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.github.TechnicJelle</groupId>
+			<groupId>com.technicjelle</groupId>
 			<artifactId>BMUtils</artifactId>
-			<version>v4.2</version>
+			<version>4.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
