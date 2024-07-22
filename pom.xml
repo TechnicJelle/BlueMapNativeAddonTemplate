@@ -9,13 +9,20 @@
 	<version>0.3</version>
 
 	<properties>
-		<maven.compiler.source>16</maven.compiler.source>
-		<maven.compiler.target>16</maven.compiler.target>
+		<java.version>16</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<release>${java.version}</release>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.6.0</version>
