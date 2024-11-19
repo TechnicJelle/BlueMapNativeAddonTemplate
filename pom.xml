@@ -6,7 +6,7 @@
 
 	<groupId>com.technicjelle</groupId>
 	<artifactId>BlueMapNativeAddonTemplate</artifactId>
-	<version>0.4</version>
+	<version>0.5</version>
 
 	<properties>
 		<java.version>21</java.version>
@@ -103,19 +103,19 @@
 		<dependency>
 			<groupId>de.bluecolored</groupId>
 			<artifactId>bluemap-common</artifactId>
-			<version>5.4</version>
+			<version>5.5</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.bluecolored.bluemap</groupId>
-			<artifactId>BlueMapAPI</artifactId>
-			<version>2.7.2</version>
+			<groupId>de.bluecolored</groupId>
+			<artifactId>bluemap-api</artifactId>
+			<version>2.7.3</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.technicjelle</groupId>
 			<artifactId>BMUtils</artifactId>
-			<version>4.2.2</version>
+			<version>4.3.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
