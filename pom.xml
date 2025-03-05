@@ -115,7 +115,7 @@
 		<dependency>
 			<groupId>com.technicjelle</groupId>
 			<artifactId>BMUtils</artifactId>
-			<version>4.3.0</version>
+			<version>4.3.1</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
