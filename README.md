@@ -8,6 +8,8 @@ This is a Native BlueMap Addon, so it should be compatible with
 all platforms and all versions that BlueMap supports, including the CLI!\
 Just put the `.jar` file in BlueMap's `packs/` directory, and it should work out of the box.
 
+The config file(s) for this addon are where configs normally are on your platform. (So *next to* BlueMap's own config folder.)
+
 To reload this addon, just reload BlueMap itself with `/bluemap reload`.
 
 ## [Click here to download!](../../releases/latest)
