@@ -18,3 +18,8 @@ To reload this addon, just reload BlueMap itself with `/bluemap reload`.
 To get support with this template, join the [BlueMap Discord server](https://bluecolo.red/map-discord)
 and ask your questions in [#3rd-party-support](https://discord.com/channels/665868367416131594/863844716047106068).
 You're welcome to ping me, @TechnicJelle.
+
+## Other templates
+
+For a template that uses Gradle instead of Maven and that has less stuff out of the box, feel free to use [this other template by Blue](https://github.com/BlueMap-Minecraft/AddonTemplate).  
+(**Tip:** Try mixing and matching files from both templates to make something that does exactly what you want!)
